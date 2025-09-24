@@ -1,0 +1,117 @@
+<!-- Dashboard Page: dashboard.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title> ( تحت التطوير ) لوحة التحكم | Eyad Admin</title>
+    <link rel="stylesheet" href="stylish.css">
+    <style>
+        body { background: #232526; color: #eaeaea; }
+        .dashboard-container {
+            max-width: 900px;
+            margin: 48px auto;
+            background: rgba(34, 40, 49, 0.97);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            padding: 48px 36px;
+        }
+        h1 { color: #00adb5; text-align: center; margin-bottom: 2em; }
+        .dashboard-nav {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 2em;
+        }
+        .dashboard-nav button {
+            padding: 12px 32px;
+            background: linear-gradient(90deg,#00adb5,#393e46);
+            color: #232526;
+            border: none;
+            border-radius: 22px;
+            font-weight: bold;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
+        }
+        .dashboard-nav button:hover {
+            background: #eaeaea;
+            color: #00adb5;
+            transform: scale(1.08);
+        }
+        .section { margin-bottom: 2em; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(57, 62, 70, 0.85);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #393e46;
+            text-align: left;
+        }
+        th { background: #00adb5; color: #232526; }
+        tr:last-child td { border-bottom: none; }
+        .add-project-form input, .add-project-form textarea {
+            width: 100%; padding: 8px; margin-bottom: 8px; border-radius: 6px; border: none;
+        }
+        .add-project-form button {
+            background: #00adb5; color: #232526; border: none; border-radius: 6px; padding: 10px 24px; font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>لوحة التحكم</h1>
+        <div class="dashboard-nav">
+            <button onclick="showSection('messages')">الرسائل</button>
+            <button onclick="showSection('projects')">المشاريع</button>
+            <button onclick="showSection('profile')">الصفحة الشخصية</button>
+        </div>
+        <div id="messages" class="section">
+            <h2>الرسائل الواردة</h2>
+            <table>
+                <tr>
+                    <th>الاسم</th>
+                    <th>البريد</th>
+                    <th>الرسالة</th>
+                    <th>تاريخ الإرسال</th>
+                </tr>
+                <!-- هنا تضع الرسائل ديناميكياً -->
+                <tr>
+                    <td>مثال</td>
+                    <td>example@email.com</td>
+                    <td>مرحبا!</td>
+                    <td>2025-09-25</td>
+                </tr>
+            </table>
+        </div>
+        <div id="projects" class="section" style="display:none;">
+            <h2>إدارة المشاريع</h2>
+            <form class="add-project-form">
+                <input type="text" placeholder="اسم المشروع" required>
+                <textarea placeholder="وصف المشروع" required></textarea>
+                <button type="submit">إضافة مشروع</button>
+            </form>
+            <!-- هنا تضع قائمة المشاريع ديناميكياً -->
+        </div>
+        <div id="profile" class="section" style="display:none;">
+            <h2>تعديل بيانات الصفحة الشخصية</h2>
+            <form>
+                <input type="text" placeholder="الاسم" required>
+                <input type="text" placeholder="المسمى الوظيفي" required>
+                <button type="submit">حفظ التعديلات</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function showSection(id) {
+            document.getElementById('messages').style.display = 'none';
+            document.getElementById('projects').style.display = 'none';
+            document.getElementById('profile').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
